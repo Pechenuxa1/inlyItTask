@@ -24,3 +24,7 @@ def init_tables():
 
         session.add_all([user1, user2, user3, user4, good1, good2, good3, good4])
         session.commit()
+
+
+def delete_tables():
+    Model.metadata.drop_all(engine)

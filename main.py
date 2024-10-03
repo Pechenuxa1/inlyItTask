@@ -2,7 +2,7 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 
-from db_connect import create_tables, init_tables
+from db_connect import create_tables, init_tables, delete_tables
 from repository import UserGoodRepository
 from schemas import UserGoodDto
 
@@ -12,7 +12,7 @@ async def lifespan(app: FastAPI):
     create_tables()
     init_tables()
     yield
-
+    delete_tables()
 
 app = FastAPI(lifespan=lifespan)
 
